@@ -1,0 +1,81 @@
+#game {
+  position: relative;
+
+  width: 100%;
+  height:98vh;
+
+  background: url("img/Galaxy.jpg");
+  background-size: cover;
+  overflow: hidden;
+}
+
+
+
+#player {
+  position: absolute;
+  bottom: 400px;
+  left: 400px;
+
+  width: 100px;
+  height: 25px;
+
+  background: url("img/darkvnoir.png");
+  background-size: contain;
+
+  transition: 2s;
+  transition-timing-function: ease-in;
+}
+
+.eagle {
+  position: absolute;
+  bottom: 100px;
+  right: 10px;
+
+  width: 60px;
+  height: 60px;
+
+  background: url("img/meteorite.png");
+  background-size: cover;
+}
+.darkvblanc {
+  position: absolute;
+  bottom: 100px;
+  right: 10px;
+
+  width: 60px;
+  height: 60px;
+
+  background: url("img/darkvblanc.png");
+  background-size: cover;
+}
+#gameover{
+ 
+ position: fixed;
+ display:none; 
+ background:darkslateblue;
+ background-size: 500px; 
+ color:white;
+ font-family: monospace;
+ font-size: 70px;
+border: 50px white;
+border-width: 50px;
+bottom: 400px;
+right: 500px;
+border-radius: 8px;
+text-align: center;
+}
+
+#btnstart{
+  position: absolute;
+ background:darkslateblue;
+ background-size: 50px; 
+ color:white;
+ font-family: monospace;
+ font-size: 70px;
+border: 50px white;
+border-width: 50px;
+bottom: 400px;
+right: 600px;
+border-radius: 8px;
+text-align: center;
+}
