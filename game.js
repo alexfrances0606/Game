@@ -9,7 +9,6 @@ let container = document.querySelector("#game");
 let player = document.querySelector("#player");
 let ground = document.querySelector("#ground");
 let enemies = document.querySelector("#enemies");
-let enemies2 = document.querySelector("#enemies2");
 let gameover = document.querySelector ("#gameover");
 let startBtn = document.querySelector ("#btnstart");
 let musique = document.querySelector ("#musique");
@@ -37,6 +36,20 @@ let motionStep = 8;
 // other variables
 let spawn, motion, playerGravity;
 
+let enemie = document.getElementsByClassName("eagle");
+if (enemie.length != 0) {
+  while(enemie.length > 0){
+    enemie[0].parentNode.removeChild(enemie[0]);
+  }
+}
+
+let enemie2 = document.getElementsByClassName(".enemies2 ");
+if (enemie2.length != 0) {
+  while(enemie2.length > 0){
+    enemie2[0].parentNode.removeChild(enemie[0]);
+  }
+}
+
 /****************************************************
  *** When game starts ***
  ****************************************************/
@@ -62,7 +75,7 @@ var intervalID = window.setInterval(spawnEnemy,500);
 
 function start(){
   motion = setInterval(function() {
-  document.querySelectorAll("#enemies > .eagle").forEach(function(div) {
+  document.querySelectorAll("#enemies > .eagle , #enemies > .enemies2  ").forEach(function(div) {
     move(div);
   });
   
@@ -89,23 +102,10 @@ document.addEventListener("keydown", event =>{
 player.style.bottom = marginBottom + "px";
 
 // invoke an enemy
-spawnEnemy();
-
-var intervalID = window.setInterval(spawnEnemy, getRandomInt(500,1000));
 
 
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-  
-}
 
 
-function spawnEnemy(){
-  let newObstacle = document.createElement("div");
-  newObstacle.classList.add("eagle");
-  newObstacle.style.bottom = getRandomInt(100, 500) + "px";
-  enemies.appendChild(newObstacle);
-   }
 
 /****************************************************
  *** Functions ***
@@ -164,12 +164,20 @@ function isCollision(bloc1, bloc2) {
 }
 
 // spawn a new enemy HTML block
-function spawnEnemy() {
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+  
+}
+
+
+function spawnEnemy(){
   let newObstacle = document.createElement("div");
   newObstacle.classList.add("eagle");
-  newObstacle.style.bottom = getRandomInt(100,500) + "px";
+  newObstacle.style.bottom = getRandomInt(100, 500) + "px";
   enemies.appendChild(newObstacle);
-}
+   }
+
 
 
 // move an enemy
@@ -191,7 +199,7 @@ function move(div) {
 
 // allow to stop the game
 function stopAll() {
-  musique.pause()
+  musique.pause();
   // hide the player
   player.style.display = "none";
 
@@ -202,5 +210,5 @@ function stopAll() {
   clearInterval(spawn);
 
 
-gameover.style.display ="flex"
+gameover.style.display ="flex";
 }
